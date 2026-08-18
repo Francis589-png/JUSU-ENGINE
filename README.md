@@ -1,41 +1,46 @@
 # JUSU ENGINE
 
-Offline-first Android prototype for a personal OS-engineer concept.
+**Offline-first personal operating-system intelligence prototype.**
 
-**Powered by JUSU tech team JTT**
+> Powered by JUSU tech team JTT
 
-## Scope
+## Prototype goals
 
-The prototype includes the architecture and UI for:
-- local command interpretation
-- system diagnostics snapshot
-- forensics workflow
-- security risk classification
-- privacy guardian staging
-- personal gesture learning staging
-- sandbox / review-before-execute workflow
-- recovery and undo architecture
-- local audit trail
-- fail-safe action boundaries
+JUSU ENGINE is a private Android prototype exploring a local system-engineer concept:
 
-The prototype deliberately does **not** pretend a normal Android app has privileged OS/root access. Features requiring system-level privileges are represented by safe interfaces/staged modules until the appropriate Android APIs or system integration are available.
+- Diagnose and explain device problems
+- System forensics
+- Security risk scoring
+- Sensitive-screen privacy protection architecture
+- Personal gesture learning architecture
+- Sandbox / simulate-before-execute
+- Supported-operation undo and recovery architecture
+- Audit trail
+- Fail-safe execution model
+- Strict offline operation
+
+## Security boundary
+
+This prototype deliberately does **not** request `INTERNET` permission and does not claim privileged/root access. Android restricts what a normal application can inspect or change. Features requiring privileged OS integration are represented as architecture/staging until they can be implemented through legitimate Android APIs or a system-level build.
+
+Core safety model:
+
+`Observe → Explain → Simulate → Confirm → Execute → Verify → Audit`
 
 ## Build
 
-Open the project in Android Studio and sync Gradle. The project targets API 37, AGP 9.4.0, Gradle 9.6, Kotlin 2.4.10 and Compose BOM 2026.06.01.
+The GitHub Actions workflow provisions Gradle 9.5 directly and builds the debug APK. A Gradle wrapper is intentionally not committed yet; the CI workflow uses the official Gradle setup action to provision Gradle.
 
-## Offline requirement
+Locally, use Android Studio with JDK 17 and Android SDK 37, then run the project's Gradle tasks through the IDE or a matching Gradle installation.
 
-No cloud AI, analytics SDK, remote API, or network service is required by the prototype. Network status is displayed only as a local device diagnostic.
+## CI artifact
 
-## GitHub Actions
+Every push to `main`, pull request, or manual workflow run executes unit tests and produces:
 
-`.github/workflows/android.yml` builds debug and release APKs and uploads them as workflow artifacts.
+`app/build/outputs/apk/debug/app-debug.apk`
 
-## Security principles
+The APK is uploaded as the `jusu-engine-debug-apk` Actions artifact.
 
-`Observe -> Explain -> Simulate -> Confirm -> Execute -> Verify -> Audit`
+## Current status
 
-Dangerous actions are not silently executed by the prototype.
-# JUSU-ENGINE
-# JUSU-ENGINE
+Version `0.1.0` is the architecture/UI foundation. The next development stages can replace the staged modules with real Android API implementations without changing the central concept.
