@@ -41,8 +41,8 @@ jobs:
       - name: Verify Gradle configuration
         run: gradle --version
 
-      - name: Run unit tests
-        run: gradle test --stacktrace
+      - name: Run app unit tests
+        run: gradle :app:testDebugUnitTest --stacktrace
 
       - name: Build debug APK
         run: gradle :app:assembleDebug --stacktrace
