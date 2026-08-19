@@ -41,7 +41,9 @@ dependencies {
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
-    implementation("androidx.activity:activity-compose:1.11.1")
+    // 1.11.1 was not a released AndroidX Activity version.
+    // 1.12.4 is a stable release and is compatible with the current Compose setup.
+    implementation("androidx.activity:activity-compose:1.12.4")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.foundation:foundation")
