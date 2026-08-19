@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.jusu.engine"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.jusu.engine"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "0.1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -41,8 +41,6 @@ dependencies {
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
-    // 1.11.1 was not a released AndroidX Activity version.
-    // 1.12.4 is a stable release and is compatible with the current Compose setup.
     implementation("androidx.activity:activity-compose:1.12.4")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
